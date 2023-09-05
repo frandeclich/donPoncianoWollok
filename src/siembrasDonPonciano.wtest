@@ -1,0 +1,17 @@
+import proyectoDonPonciano.*
+
+test "fertiliza dos veces, cosecha y siembra trigo en 10 hectareas" {
+	donPonciano.fertilizar()
+	donPonciano.fertilizar()
+	donPonciano.cosecharSembrar(trigo, 10)
+	assert.equals(120000,donPonciano.dinero())
+	assert.equals(trigo,donPonciano.tipoDeCultivo())
+}
+test "amplía el campo, resiembra maiz, fertiliza, cosecha y siembra otra vez lo mismo"{
+	donPonciano.ampliarSiembra()
+	donPonciano.resiembra(maiz)
+	donPonciano.fertilizar() 
+	donPonciano.cosecharSembrar(maiz, 15)
+	assert.equals(5000,donPonciano.tipoDeCultivo().costoFertilizar(donPonciano.campoSembrado()))
+	assert.equals(26512.5, donPonciano.dinero())
+}
